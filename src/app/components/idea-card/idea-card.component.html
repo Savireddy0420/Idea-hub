@@ -1,0 +1,32 @@
+<div class="idea-card" [class.top-card]="isTop">
+  <div class="card-header">
+    <div class="badges">
+      <span class="badge" [ngClass]="'badge-' + idea.category">{{ idea.category }}</span>
+      <span class="crown" *ngIf="isTop">👑 Top Idea</span>
+    </div>
+    <button class="delete-btn" (click)="delete()">🗑️</button>
+  </div>
+
+  <h3>{{ idea.title }}</h3>
+  <p class="desc">{{ idea.description }}</p>
+
+  <div class="author-row" *ngIf="idea.author">
+    <div class="avatar">{{ idea.author.slice(0,2).toUpperCase() }}</div>
+    <span class="author-name">{{ idea.author }}</span>
+  </div>
+
+  <div class="actions">
+    <button [class.liked]="hasLiked" (click)="like()">
+      🔥 {{ idea.likes }}
+    </button>
+    <button class="comment-btn" (click)="showComments = !showComments">
+      💬 {{ idea.comments.length }}
+    </button>
+  </div>
+
+  <div class="comments-section" *ngIf="showComments">
+    <div class="comment-item" *ngFor="let c of idea.comments">{{ c }}</div>
+    <input type="text" [(ngModel)]="newComment" placeholder="Write a comment..." />
+    <button class="post-btn" (click)="addComment()">Post</button>
+  </div>
+</div>

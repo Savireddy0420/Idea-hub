@@ -1,0 +1,9 @@
+<div class="add-idea-form">
+  <input [(ngModel)]="author" placeholder="Your name *" />
+  <input [(ngModel)]="title" placeholder="Idea title *" />
+  <textarea [(ngModel)]="description" placeholder="Describe your idea..."></textarea>
+  <select [(ngModel)]="category">
+    <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+  </select>
+  <button (click)="submit()">Submit Idea</button>
+</div>

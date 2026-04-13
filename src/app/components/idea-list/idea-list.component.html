@@ -1,0 +1,17 @@
+<app-add-idea (ideaAdded)="load()"></app-add-idea>
+
+<div class="list-wrapper">
+  <div class="idea-grid">
+    <app-idea-card
+      *ngFor="let idea of ideas; let i = index"
+      [idea]="idea"
+      [isTop]="i === 0"
+      (liked)="onLike($event)"
+      (commented)="onComment($event)"
+      (deleted)="onDelete($event)"
+    ></app-idea-card>
+  </div>
+  <div class="empty-state" *ngIf="ideas.length === 0">
+    💡 No ideas yet. Be the first to submit one!
+  </div>
+</div>

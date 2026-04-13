@@ -1,0 +1,16 @@
+.list-wrapper {
+  padding: 1.5rem 2rem;
+}
+
+.idea-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #9991e8;
+  font-size: 15px;
+}
