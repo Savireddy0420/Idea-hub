@@ -1,23 +1,32 @@
-.app-header {
-  background: #3c3489;
-  padding: 1.2rem 2rem;
+.header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(135deg, #2563EB, #4F46E5);
+  color: white;
+  padding: 12px 25px;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-.header-left {
+.right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
-.logo { font-size: 24px; }
-
-h1 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
+.user {
+  background: rgba(255,255,255,0.2);
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
-h1 span { color: #AFA9EC; }
+button {
+  background: white;
+  color: #2563EB;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}

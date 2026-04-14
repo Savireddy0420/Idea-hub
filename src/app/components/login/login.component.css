@@ -1,0 +1,66 @@
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+   padding-left: 120px;    
+
+  /* BACKGROUND IMAGE */
+  background: 
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjU5MS1teW50LTMzLWhhbmRkcmF3bmxpZ2h0YnVsYnNfMS5qcGc.jpg');
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* LOGIN CARD */
+.login-box {
+  width: 320px;
+  padding: 30px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.95);  /* glass feel */
+  backdrop-filter: blur(6px);
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* TITLE */
+.title {
+  margin-bottom: 5px;
+  color: #111;
+}
+
+/* SUBTITLE */
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* INPUTS */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2563EB;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1D4ED8;
+}

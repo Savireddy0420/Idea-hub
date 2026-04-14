@@ -1,0 +1,23 @@
+<div class="login-wrapper">
+
+  <div class="login-box">
+
+    <h1 class="title">💡 Idea Hub</h1>
+    <p class="subtitle">Welcome to Idea Hub</p>
+
+    <input 
+      type="text" 
+      [(ngModel)]="name" 
+      placeholder="Enter your name" 
+    />
+
+    <select [(ngModel)]="role">
+      <option value="employee">Employee</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <button (click)="login()">Login</button>
+
+  </div>
+
+</div>

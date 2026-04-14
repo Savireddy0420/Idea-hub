@@ -1,253 +1,90 @@
 .idea-card {
-  background: #fff;
-  border-radius: 14px;
-  border: 1.5px solid #ede9ff;
-  padding: 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+  transition: 0.3s;
 }
 
 .idea-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(83, 74, 183, 0.12);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
 }
 
-.idea-card.top-card {
-  border-color: #f59e0b;
-  background: #fffdf5;
-}
-
+/* HEADER */
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-}
-
-.badges {
-  display: flex;
-  gap: 6px;
   align-items: center;
-  flex-wrap: wrap;
 }
 
+/* BADGE */
 .badge {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 10px;
+  background: #E0F2FE;
+  color: #0284C7;
+  padding: 5px 12px;
   border-radius: 20px;
+  font-size: 12px;
 }
 
-.badge-General  { background: #E1F5EE; color: #085041; }
-.badge-Tech     { background: #E6F1FB; color: #0C447C; }
-.badge-Design   { background: #FBEAF0; color: #72243E; }
-.badge-Marketing{ background: #FAEEDA; color: #633806; }
-.badge-Operations{ background: #EEEDFE; color: #3C3489; }
-
-.crown {
-  background: #fef3c7;
-  color: #b45309;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-}
-
+/* DELETE BUTTON */
 .delete-btn {
-  background: none;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 4px 8px;
   border: none;
   cursor: pointer;
-  font-size: 14px;
-  color: #ccc;
-  padding: 2px 6px;
-  border-radius: 6px;
-  transition: all 0.2s;
 }
 
-.delete-btn:hover {
-  color: #A32D2D;
-  background: #FCEBEB;
+/* TITLE */
+h3 {
+  margin: 12px 0;
+  font-size: 18px;
 }
 
-.idea-card h3 {
-  font-size: 15px;
-  font-weight: 700;
-  color: #1a1a2e;
-  line-height: 1.35;
+/* DESCRIPTION */
+.desc {
+  color: #6b7280;
 }
 
-.idea-card .desc {
-  font-size: 13px;
-  color: #777;
-  line-height: 1.5;
-}
-
+/* AUTHOR */
 .author-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  margin-top: 12px;
 }
 
 .avatar {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
+  background: #2563EB;
+  color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  background: #EEEDFE;
-  color: #534AB7;
+  margin-right: 10px;
 }
 
-.author-name {
-  font-size: 12px;
-  color: #7f77dd;
-  font-weight: 600;
-}
-
+/* ACTIONS */
 .actions {
+  margin-top: 12px;
   display: flex;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 10px;
 }
 
 .actions button {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  border: 1.5px solid #ede9ff;
-  background: #faf9ff;
-  color: #534AB7;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.actions button:hover { background: #EEEDFE; }
-
-.actions button.liked {
-  background: #FCEBEB;
-  border-color: #F09595;
-  color: #A32D2D;
-}
-
-.actions .comment-btn {
-  background: #E1F5EE;
-  border-color: #9FE1CB;
-  color: #0F6E56;
-}
-
-.comments-section {
-  border-top: 1.5px solid #f0eeff;
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.comments-section .comment-item {
-  font-size: 12px;
-  color: #555;
-  background: #faf9ff;
+  background: #F3F4F6;
   border-radius: 8px;
   padding: 6px 10px;
-  border: 1px solid #ede9ff;
 }
 
-.comments-section input {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1.5px solid #e0dcff;
-  border-radius: 8px;
-  font-size: 13px;
-  font-family: inherit;
-  outline: none;
-  color: #3c3489;
-  background: #faf9ff;
-}
-
-.comments-section input:focus { border-color: #7f77dd; }
-
-.comments-section .post-btn {
-  padding: 7px 16px;
-  background: #3c3489;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  align-self: flex-end;
-}
-
-.comments-section .post-btn:hover { background: #534AB7; }
-.idea-card {
-  background: white;
-  border-radius: 12px;
-  border: 1px solid #e0e0e0;
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.badge {
-  display: inline-block;
-  padding: 4px 12px;
-  background: #eeedfe;
-  color: #3c3489;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 500;
-  width: fit-content;
-}
-
-.idea-card h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #222;
-}
-
-.idea-card p {
-  font-size: 14px;
-  color: #666;
-}
-
-.actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 6px;
-}
-
-.actions button {
-  padding: 6px 14px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: white;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.actions button:hover { background: #f0f0f0; }
-
-input[type="text"] {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 13px;
-  margin-top: 6px;
-}
-
-.comments-section p {
-  font-size: 13px;
-  color: #444;
-  padding: 4px 0;
-  border-bottom: 1px solid #f0f0f0;
-}
+.card-tech { border-left: 4px solid #2563EB; }
+.card-design { border-left: 4px solid #9333EA; }
+.card-marketing { border-left: 4px solid #10B981; }
+.card-operations { border-left: 4px solid #F59E0B; }
+.card-general { border-left: 4px solid #6B7280; }

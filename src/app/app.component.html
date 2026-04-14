@@ -1,7 +1,23 @@
-<div class="app-header">
-  <div class="header-left">
-    <span class="logo">💡</span>
-    <h1>Idea <span>Hub</span></h1>
+<!-- HEADER -->
+<div class="header" *ngIf="auth.isLoggedIn()">
+
+  <div class="left">
+    <h2>💡 Idea Hub</h2>
   </div>
+
+  <div class="right">
+    <span class="user">
+      👤 {{ auth.getUser()?.name }} ({{ auth.getUser()?.role }})
+    </span>
+    <button (click)="logout()">Logout</button>
+  </div>
+
 </div>
-<app-idea-list></app-idea-list>
+
+<!-- LOGIN -->
+<app-login *ngIf="!auth.isLoggedIn()"></app-login>
+
+<!-- MAIN -->
+<div class="main-container" *ngIf="auth.isLoggedIn()">
+  <app-idea-list></app-idea-list>
+</div>
