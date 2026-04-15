@@ -1,13 +1,27 @@
-<div class="add-idea-form">
-  <h3>Add Idea</h3>
+<div class="bg-white p-5 rounded-xl shadow mb-5">
 
-  <input [(ngModel)]="title" placeholder="Idea title *" />
+  <h2 class="text-lg font-semibold mb-3">Add Idea</h2>
 
-  <textarea [(ngModel)]="description" placeholder="Describe your idea..."></textarea>
+  <input
+    [(ngModel)]="title"
+    placeholder="Idea title"
+    class="w-full p-2 border rounded-lg mb-3" />
 
-  <select [(ngModel)]="category">
-    <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+  <textarea
+    [(ngModel)]="description"
+    placeholder="Description"
+    class="w-full p-2 border rounded-lg mb-3">
+  </textarea>
+
+  <select [(ngModel)]="category"
+    class="w-full p-2 border rounded-lg mb-3">
+    <option *ngFor="let c of categories">{{ c }}</option>
   </select>
 
-  <button (click)="submit()">Submit Idea</button>
+  <button
+    (click)="submit()"
+    class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+    Submit
+  </button>
+
 </div>

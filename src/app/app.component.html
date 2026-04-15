@@ -1,23 +1,23 @@
-<!-- HEADER -->
-<div class="header" *ngIf="auth.isLoggedIn()">
+<div *ngIf="auth.isLoggedIn()" class="flex justify-between items-center bg-blue-600 text-white px-6 py-3 shadow">
 
-  <div class="left">
-    <h2>💡 Idea Hub</h2>
-  </div>
+  <h2 class="text-lg font-semibold">💡 Idea Hub</h2>
 
-  <div class="right">
-    <span class="user">
-      👤 {{ auth.getUser()?.name }} ({{ auth.getUser()?.role }})
+  <div class="flex items-center gap-3">
+    <span class="bg-white/20 px-3 py-1 rounded-full text-sm">
+      {{ auth.getUser()?.name }} ({{ auth.getUser()?.role }})
     </span>
-    <button (click)="logout()">Logout</button>
+
+    <button 
+      (click)="logout()"
+      class="bg-white text-blue-600 px-3 py-1 rounded-full">
+      Logout
+    </button>
   </div>
 
 </div>
 
-<!-- LOGIN -->
 <app-login *ngIf="!auth.isLoggedIn()"></app-login>
 
-<!-- MAIN -->
-<div class="main-container" *ngIf="auth.isLoggedIn()">
+<div *ngIf="auth.isLoggedIn()" class="max-w-6xl mx-auto p-5">
   <app-idea-list></app-idea-list>
 </div>

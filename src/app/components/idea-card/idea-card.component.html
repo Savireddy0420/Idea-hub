@@ -1,50 +1,101 @@
 <div 
-  class="idea-card"
-  [class.top-card]="isTop"
-  [ngClass]="'card-' + idea.category.toLowerCase()">
+  [ngClass]="getCategoryColor(idea.category)"
+  class="rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-5 border">
 
-  <div class="card-header">
-    <div class="badges">
-      <span class="badge" [ngClass]="'badge-' + idea.category">
+  <!-- HEADER -->
+  <div class="flex justify-between items-start mb-3">
+
+    <div class="flex items-center gap-2">
+
+      <!-- CATEGORY -->
+      <span class="text-xs bg-white text-gray-800 px-2 py-1 rounded-full font-medium shadow-sm">
         {{ idea.category }}
       </span>
 
-      <span class="crown" *ngIf="isTop">👑 Top Idea</span>
+      <!-- NEW BADGE -->
+      <span *ngIf="idea.isNew"
+            class="flex items-center gap-1 bg-white text-green-700 px-2 py-1 rounded-full text-xs font-semibold shadow-sm">
+
+        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        NEW
+      </span>
+
     </div>
 
-    <button 
-      class="delete-btn" 
-      *ngIf="canDelete()" 
-      (click)="delete()">
+    <!-- DELETE -->
+    <button *ngIf="canDelete()" (click)="delete()"
+            class="text-white/70 hover:text-red-300 transition">
       🗑️
     </button>
+
   </div>
 
-  <h3>{{ idea.title }}</h3>
-  <p class="desc">{{ idea.description }}</p>
+  <!-- TITLE -->
+  <h3 class="font-semibold text-white text-lg mb-1">
+    {{ idea.title }}
+  </h3>
 
-  <div class="author-row" *ngIf="idea.author">
-    <div class="avatar">
-      {{ idea.author.slice(0,2).toUpperCase() }}
+  <!-- DESCRIPTION -->
+  <p class="text-sm text-white/80 line-clamp-2">
+    {{ idea.description }}
+  </p>
+
+  <!-- AUTHOR -->
+  <div class="flex items-center gap-2 mt-4">
+
+    <div class="w-9 h-9 rounded-full text-white flex items-center justify-center text-sm font-semibold"
+         [ngClass]="getAvatarColor(idea.author)">
+      {{ idea.author.charAt(0).toUpperCase() || '?' }}
     </div>
-    <span class="author-name">{{ idea.author }}</span>
+
+    <span class="text-sm text-white font-medium">
+      {{ idea.author }}
+    </span>
+
   </div>
 
-  <div class="actions">
-    <button [class.liked]="hasLiked" (click)="like()">
-      ❤️ {{ idea.likes }}
-    </button>
+  <!-- ACTIONS -->
+  <div class="flex justify-between items-center mt-4 text-sm">
 
-    <button (click)="showComments = !showComments">
-      💬 {{ idea.comments.length }}
-    </button>
+    <div class="flex gap-4">
+
+      <button (click)="like()"
+              class="flex items-center gap-1 text-white/80 hover:text-red-300 transition">
+        ❤️ <span>{{ idea.likes }}</span>
+      </button>
+
+      <button (click)="showComments = !showComments"
+              class="flex items-center gap-1 text-white/80 hover:text-blue-300 transition">
+        💬 <span>{{ idea.comments.length }}</span>
+      </button>
+
+    </div>
+
   </div>
 
-  <div class="comments-section" *ngIf="showComments">
-    <div *ngFor="let c of idea.comments">{{ c }}</div>
+  <!-- COMMENTS -->
+  <div *ngIf="showComments" class="mt-4 border-t border-white/20 pt-3">
 
-    <input [(ngModel)]="newComment" placeholder="Write a comment..." />
-    <button (click)="addComment()">Post</button>
+    <div *ngFor="let c of idea.comments"
+         class="text-sm text-white/80 mb-1">
+      {{ c }}
+    </div>
+
+    <div class="flex gap-2 mt-2">
+
+      <input
+        [(ngModel)]="newComment"
+        placeholder="Add comment..."
+        class="flex-1 p-2 rounded-lg text-sm bg-white/20 text-white placeholder-white/70 focus:ring-2 focus:ring-white" />
+
+      <button
+        (click)="addComment()"
+        class="bg-white text-gray-800 px-3 rounded-lg text-sm font-medium hover:bg-gray-200 transition">
+        Post
+      </button>
+
+    </div>
+
   </div>
 
 </div>

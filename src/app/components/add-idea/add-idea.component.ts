@@ -8,8 +8,7 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-add-idea',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './add-idea.component.html',
-  styleUrls: ['./add-idea.component.css']
+  templateUrl: './add-idea.component.html'
 })
 export class AddIdeaComponent {
 
@@ -18,6 +17,9 @@ export class AddIdeaComponent {
   title = '';
   description = '';
   category = 'General';
+
+  status: string = 'New';
+  statuses = ['New', 'In Progress', 'Approved', 'Rejected'];
 
   categories = ['General', 'Tech', 'Design', 'Marketing', 'Operations'];
 
@@ -35,7 +37,8 @@ export class AddIdeaComponent {
       title: this.title,
       description: this.description,
       category: this.category,
-      author: user.name
+      author: user?.name || 'Anonymous',
+       createdAt: Date.now() 
     });
 
     this.title = '';

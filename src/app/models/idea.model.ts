@@ -6,5 +6,7 @@ export interface Idea {
   author: string;
   likes: number;
   comments: string[];
-  createdAt: string;
+
+  createdAt?: number;  // ✅ for latest idea logic
+  isNew?: boolean;     // ✅ for NEW badge
 }

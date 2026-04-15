@@ -1,28 +1,61 @@
 <app-add-idea (ideaAdded)="load()"></app-add-idea>
 
-<div class="tabs">
+<!-- Filters -->
+<div class="flex flex-col md:flex-row gap-3 mb-5">
 
-  <button 
-    (click)="selectedTab='all'" 
-    [class.active]="selectedTab === 'all'">
+  <!-- Search -->
+  <input 
+    [(ngModel)]="searchText"
+    placeholder="Search ideas..."
+    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" />
+
+  <!-- Category -->
+  <select [(ngModel)]="selectedCategory"
+    class="p-3 border border-gray-300 rounded-lg">
+    <option *ngFor="let c of categories">{{ c }}</option>
+  </select>
+
+</div>
+
+<!-- Dashboard Tabs -->
+<div class="flex border-b mb-6">
+
+  <button
+    (click)="selectedTab='all'"
+    [ngClass]="selectedTab==='all' 
+      ? 'border-b-2 border-blue-600 text-blue-600' 
+      : 'text-gray-500'"
+    class="px-6 py-2 font-medium transition">
     All Ideas
   </button>
 
-  <button 
-    (click)="selectedTab='my'" 
-    [class.active]="selectedTab === 'my'">
+  <button
+    (click)="selectedTab='my'"
+    [ngClass]="selectedTab==='my' 
+      ? 'border-b-2 border-blue-600 text-blue-600' 
+      : 'text-gray-500'"
+    class="px-6 py-2 font-medium transition">
     My Ideas
   </button>
 
 </div>
 
-<app-idea-card
-  *ngFor="let idea of filteredIdeas"
-  [idea]="idea"
-  [currentUser]="user"
-  [isAdmin]="auth.isAdmin()"
-  (liked)="onLike($event)"
-  (commented)="onComment($event)"
-  (deleted)="onDelete($event)">
-</app-idea-card>
+<!-- Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
+  <app-idea-card
+    *ngFor="let idea of filteredIdeas"
+    [idea]="idea"
+    [currentUser]="user"
+    (liked)="onLike($event)"
+    (deleted)="onDelete($event)"
+    (commented)="onComment($event)">
+  </app-idea-card>
+
+</div>
+
+<!-- Empty -->
+<div *ngIf="filteredIdeas.length === 0"
+     class="text-center text-gray-500 mt-6">
+  No ideas found 😔
+</div>
